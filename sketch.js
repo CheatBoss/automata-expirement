@@ -1,7 +1,7 @@
 let world;
 let rectSize;
 const gridSize = 50;
-
+let stopped = false;
 let controlEnergy = 100;
 
 function setup() {
@@ -16,6 +16,7 @@ function setup() {
 }
 
 function update() {
+  if (stopped) return;
   let wrld = JSON.parse(JSON.stringify(world));
   for (let y = 0; y < gridSize; ++y) {
     for (let x = 0; x < gridSize; ++x) {
@@ -84,6 +85,9 @@ function keyPressed() {
       break;
     case "r":
       fillWorldRandom();
+      break;
+    case "p":
+      stopped = !stopped;
       break;
   }
 }
