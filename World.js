@@ -21,7 +21,10 @@ class World {
             if (div >= this.magic) {
                 this.buffer_new[i] = 0;
                 for (let coord of this.neighboursCoords) {
-                    this.buffer_new[i + coord] += div;
+                    let index = i + coord;
+                    if (index > this.buffer_size) index -= this.buffer_size;
+                    else if (index < 0) index += this.buffer_size;
+                    this.buffer_new[index] += div;
                 }
             }
         }

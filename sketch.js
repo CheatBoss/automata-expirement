@@ -34,12 +34,15 @@ function draw() {
 function keyPressed() {
   switch (key.toLowerCase()) {
     case "c":
+    case "с":
       world.fill(0);
       break;
     case "r":
+    case "к":
       world.fillRandom();
       break;
     case "p":
+    case "з":
       world.pause();
       break;
   }
